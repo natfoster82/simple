@@ -17,9 +17,9 @@ async def test(request):
         count = 1
     redis_store.set('simple_count', count)
     response_data = {
-        'message': 'Hello, world!',
+        'message': 'Hello, world, from Caveon!',
         'count': count,
-        'version': '0.1.1',
+        'version': '0.1.2',
         'hostname': socket.gethostname()
     }
     return response.json(response_data)
