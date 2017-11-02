@@ -1,3 +1,4 @@
+import socket
 from sanic import Sanic, response
 from redis import StrictRedis
 from config import REDIS_URL
@@ -17,7 +18,9 @@ async def test(request):
     redis_store.set('simple_count', count)
     response_data = {
         'message': 'Hello, world!',
-        'count': count
+        'count': count,
+        'version': '0.1.1',
+        'hostname': socket.gethostname()
     }
     return response.json(response_data)
 
